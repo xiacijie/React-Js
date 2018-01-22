@@ -1,0 +1,10 @@
+1. let and var
+
+In ES6, there is two more declaration: "let" and "const"
+let and const: let only has a block scope. But var does not.
+
+2. Arrow functions
+
+example: const myfunction = () =>{
+	
+		}
