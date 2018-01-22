@@ -67,3 +67,16 @@ const person = new Person()  //new an object
 4. Property and methods
 
 
+ES6:  constructor(){
+		this.myProperty = 'value';
+	  }
+
+	  myMethod(){
+
+	  }
+
+ES7 : myProperty = 'value';       //Do not need a constructor
+	  
+	  myMethod =(){
+
+	  }  // use arrow function

@@ -1,7 +1,0 @@
-Es6 syntax
-
-. const App = () =>{
-	return sth;
-}
-
-//using the arrow to repalce function
