@@ -1,0 +1,2 @@
+1. State:
+	state is a class member that store the necessary info
