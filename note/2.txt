@@ -1,2 +1,4 @@
 1. State:
 	state is a class member that store the necessary info
+
+	It is bad to change state, instead, we should change the component function to render to the DOM
