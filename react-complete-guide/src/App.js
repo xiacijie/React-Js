@@ -10,7 +10,10 @@ class App extends Component {
       <div className="App">
         <h1>Hello</h1>
         <p> HAHHAHA </p>
-        <Person />
+        <Person name="Jack" age="20" />
+        <Person name="someone" age="22"> My Hobbies : Music </Person>
+        <Person name="PIPI" age="12"/>
+
       </div>
       // <p> adsad</p>: Wrong, we there must be a root element
     );
