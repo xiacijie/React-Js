@@ -1,0 +1,7 @@
+
+1. create an element by React:
+
+	return React.createElement('div',{className:"App"},React.createElement("h1",null,"hello"));
+
+2. JSX restrictions:
+	class="App"  cannot be used since there is a keyword class in js, therefore we use className = "App";
