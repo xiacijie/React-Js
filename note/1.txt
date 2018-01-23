@@ -5,3 +5,11 @@
 
 2. JSX restrictions:
 	class="App"  cannot be used since there is a keyword class in js, therefore we use className = "App";
+3. Output dynamic content:
+	put {} inside jsX
+
+4. Passing Properties:
+	use props.attr to access properties passing from outside
+
+5. Children Property:
+	

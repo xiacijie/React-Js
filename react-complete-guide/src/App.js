@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Person from "./Person/Person";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <h1>Hello</h1>
         <p> HAHHAHA </p>
+        <Person />
       </div>
       // <p> adsad</p>: Wrong, we there must be a root element
     );
