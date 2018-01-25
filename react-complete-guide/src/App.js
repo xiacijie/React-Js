@@ -4,6 +4,8 @@ import './App.css';
 import Person from "./Person/Person";
 
 class App extends Component {
+
+
     state = {
         persons:[
             {name:"Jack",age:28},
@@ -36,16 +38,22 @@ class App extends Component {
     }
     render = () => {
      //first class
+     const style = {
+         backgroundColor:"green",
+         font:"inherit",
+         border:"1x solid blue",
+         padding:"8x"
+     };
     return (
       <div className="App">
         <h1>Hello</h1>
         <p> HAHHAHA </p>
-        <button onClick={()=>this.switchNameHandler("Anonymys function")}>Switch Name</button> //Not efecient
+        <button style = {style} onClick={()=>this.switchNameHandler("Anonymys function")}>Switch Name</button> //Not efecient
         <Person name={this.state.persons[0].name}
                 age={this.state.persons[0].age} />
         <Person name={this.state.persons[1].name}
                 age={this.state.persons[1].age}
-                click={this.switchNameHandler.bind(this,"123")}
+                click={this.switchNameHandler.bind(this,"123")} //bind the method
                 changed = {this.nameChangedHandler}>
                 My Hobbies : Music </Person>
         <Person name={this.state.persons[2].name}
