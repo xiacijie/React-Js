@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
-import UserInput from './User/User';
+import {UserInput,UserOutput} from './User/User';
 
 class App extends Component {
-  render = () => {
+    state = {
+        username:"xiacijie"
+    }
+
+    stateManipulateHandler = (event) =>{
+        this.setState({
+            username:event.target.value
+        })
+
+
+    }
+    render = () => {
+        const style = {
+            backgroundColor:"green",
+            font:"inherit",
+            border:"1x solid blue",
+            padding:"8x"
+        };
     return (
       <div className="App">
 
-        <UserInput/>
+        <UserInput change = {this.stateManipulateHandler}/>
+        <UserOutput username = {this.state.username} style={style} />
+        <UserOutput style = {style}/>
+        <UserOutput/>
+        <UserOutput/>
 
       </div>
     );
