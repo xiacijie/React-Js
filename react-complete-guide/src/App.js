@@ -52,25 +52,31 @@ class App extends Component {
          border:"1x solid blue",
          padding:"8x"
      };
+
+     let person = null;
+     if (this.state.showPerson){
+         person = (
+             <div>
+                 <Person name={this.state.persons[0].name}
+                         age={this.state.persons[0].age} />
+                 <Person name={this.state.persons[1].name}
+                         age={this.state.persons[1].age}
+                          //bind the method
+                         changed = {this.nameChangedHandler}>
+                         My Hobbies : Music </Person>
+                 <Person name={this.state.persons[2].name}
+                         age={this.state.persons[2].age}/>
+             </div>
+
+         );
+     }
     return (
       <div className="App">
         <h1>Hello</h1>
         <p> HAHHAHA </p>
         <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button> //Not efecient
-        {
-            this.state.showPerson?
-                <div>
-                    <Person name={this.state.persons[0].name}
-                            age={this.state.persons[0].age} />
-                    <Person name={this.state.persons[1].name}
-                            age={this.state.persons[1].age}
-                             //bind the method
-                            changed = {this.nameChangedHandler}>
-                            My Hobbies : Music </Person>
-                    <Person name={this.state.persons[2].name}
-                            age={this.state.persons[2].age}/>
-                </div> : null
-        }
+
+        {person}
 
       </div>
       // <p> adsad</p>: Wrong, we there must be a root element
