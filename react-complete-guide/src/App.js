@@ -53,19 +53,14 @@ class App extends Component {
          padding:"8x"
      };
 
-     let person = null;
+     let persons = null;
      if (this.state.showPerson){
-         person = (
+         persons = (
              <div>
-                 <Person name={this.state.persons[0].name}
-                         age={this.state.persons[0].age} />
-                 <Person name={this.state.persons[1].name}
-                         age={this.state.persons[1].age}
-                          //bind the method
-                         changed = {this.nameChangedHandler}>
-                         My Hobbies : Music </Person>
-                 <Person name={this.state.persons[2].name}
-                         age={this.state.persons[2].age}/>
+                {this.state.persons.map((person)=>{
+                    return <Person name={person.name} age={person.age} />
+                })}
+                
              </div>
 
          );
@@ -76,7 +71,7 @@ class App extends Component {
         <p> HAHHAHA </p>
         <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button> //Not efecient
 
-        {person}
+        {persons }
 
       </div>
       // <p> adsad</p>: Wrong, we there must be a root element
