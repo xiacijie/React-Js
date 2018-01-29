@@ -11,7 +11,8 @@ class App extends Component {
             {name:"Jack",age:28},
             {name:"Manu",age:29},
             {name:"Steo",age:26}
-        ]
+        ],
+        showPerson:true
 
     }
 
@@ -24,6 +25,7 @@ class App extends Component {
                 {name:"Manu",age:29},
                 {name:"Steo",age:26}
             ]
+
         })
     }
 
@@ -36,6 +38,12 @@ class App extends Component {
             ]
         })
     }
+
+    togglePersonHandler = () =>{
+        const show = this.state.showPerson;
+        this.setState({showPerson:!show});
+    }
+
     render = () => {
      //first class
      const style = {
@@ -48,16 +56,21 @@ class App extends Component {
       <div className="App">
         <h1>Hello</h1>
         <p> HAHHAHA </p>
-        <button style = {style} onClick={()=>this.switchNameHandler("Anonymys function")}>Switch Name</button> //Not efecient
-        <Person name={this.state.persons[0].name}
-                age={this.state.persons[0].age} />
-        <Person name={this.state.persons[1].name}
-                age={this.state.persons[1].age}
-                click={this.switchNameHandler.bind(this,"123")} //bind the method
-                changed = {this.nameChangedHandler}>
-                My Hobbies : Music </Person>
-        <Person name={this.state.persons[2].name}
-                age={this.state.persons[2].age}/>
+        <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button> //Not efecient
+        {
+            this.state.showPerson?
+                <div>
+                    <Person name={this.state.persons[0].name}
+                            age={this.state.persons[0].age} />
+                    <Person name={this.state.persons[1].name}
+                            age={this.state.persons[1].age}
+                             //bind the method
+                            changed = {this.nameChangedHandler}>
+                            My Hobbies : Music </Person>
+                    <Person name={this.state.persons[2].name}
+                            age={this.state.persons[2].age}/>
+                </div> : null
+        }
 
       </div>
       // <p> adsad</p>: Wrong, we there must be a root element
