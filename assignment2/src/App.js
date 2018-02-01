@@ -4,7 +4,7 @@ import './App.css';
 class App extends Component {
     state = {
         input:"",
-        box:[]
+        box:[{id:0,char:""}]
     }
 
     changeListener = (event) =>{
@@ -12,7 +12,7 @@ class App extends Component {
         let list = event.target.value.split("");
         let newBox = [];
         for (let i=0;i<list.length;i++){
-            newBox.push(<CharComponent char={list[i]} />);
+            newBox.push({id:i,char:list[i]});
         }
         this.setState({box:newBox});
     }
@@ -25,8 +25,9 @@ class App extends Component {
             <input type="text" onChange={this.changeListener} />
             <p>{this.state.input.length}</p>
             <ValidationComponent length={this.state.input.length} />
-            {this.state.box.map((com) =>{
-                return com;
+            {this.state.box.map((box) =>{
+                return <CharComponent key={box.id} char={box.char}/>
+
             })}
         </div>
     );
