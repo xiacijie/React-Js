@@ -4,7 +4,7 @@ import './App.css';
 class App extends Component {
     state = {
         input:"",
-        box:[{id:0,char:""}]
+        box:[]
     }
 
     changeListener = (event) =>{
@@ -17,6 +17,13 @@ class App extends Component {
         this.setState({box:newBox});
     }
 
+    removeListener = (index) =>{
+        let newBox = [...this.state.box];
+        newBox.splice(index,1);
+        this.setState({box:newBox});
+
+
+    }
 
 
   render() {
@@ -25,8 +32,8 @@ class App extends Component {
             <input type="text" onChange={this.changeListener} />
             <p>{this.state.input.length}</p>
             <ValidationComponent length={this.state.input.length} />
-            {this.state.box.map((box) =>{
-                return <CharComponent key={box.id} char={box.char}/>
+            {this.state.box.map((box,index) =>{
+                return <CharComponent key={box.id} char={box.char} click={()=>this.removeListener(index)}/>
 
             })}
         </div>
@@ -55,7 +62,7 @@ const CharComponent = (props) =>{
         border:"1px solid black"
 
     }
-    return <div style={style}>
+    return <div style={style} onClick={props.click}>
         <h1>{props.char}</h1>
     </div>;
 }
