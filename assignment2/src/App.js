@@ -3,19 +3,31 @@ import './App.css';
 
 class App extends Component {
     state = {
-        input:0
+        input:"",
+        box:[]
     }
 
     changeListener = (event) =>{
         this.setState({input:event.target.value});
+        let list = event.target.value.split("");
+        let newBox = [];
+        for (let i=0;i<list.length;i++){
+            newBox.push(<CharComponent char={list[i]} />);
+        }
+        this.setState({box:newBox});
     }
+
+
+
   render() {
     return (
         <div>
             <input type="text" onChange={this.changeListener} />
             <p>{this.state.input.length}</p>
             <ValidationComponent length={this.state.input.length} />
-            <CharComponent />
+            {this.state.box.map((com) =>{
+                return com;
+            })}
         </div>
     );
   }
@@ -33,7 +45,7 @@ const ValidationComponent =(props) =>{
     );
 };
 
-const CharComponent = () =>{
+const CharComponent = (props) =>{
     const style = {
         display:"inline-block",
         padding:"16px",
@@ -42,6 +54,8 @@ const CharComponent = () =>{
         border:"1px solid black"
 
     }
-    return <div style={style}><h1>hello</h1></div>;
+    return <div style={style}>
+        <h1>{props.char}</h1>
+    </div>;
 }
 export default App;
