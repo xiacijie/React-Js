@@ -56,6 +56,7 @@ class App extends Component {
     }
 
     togglePersonHandler = () =>{
+        console.log("work");
         const show = this.state.showPerson;
         this.setState({showPerson:!show});
     }
@@ -64,6 +65,7 @@ class App extends Component {
      //first class
      const style = {
          backgroundColor:"green",
+         color:"white",
          font:"inherit",
          border:"1x solid blue",
          padding:"8x"
@@ -84,11 +86,22 @@ class App extends Component {
              </div>
 
          );
+         style.backgroundColor = 'red';
+
+         var classes = [];
+         if (this.state.persons.length <= 2){
+             classes.push("red");
+         }
+         if (this.state.persons.length <=1){
+             classes.push('bold');
+         }
      }
+
+
     return (
       <div className="App">
         <h1>Hello</h1>
-        <p> HAHHAHA </p>
+        <p className={classes.join(' ')}> HAHHAHA </p>
         <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button> //Not efecient
 
         {persons }
