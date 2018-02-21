@@ -88,21 +88,22 @@ class App extends Component {
          );
          style.backgroundColor = 'red';
 
-         var classes = [];
-         if (this.state.persons.length <= 2){
-             classes.push("red");
-         }
-         if (this.state.persons.length <=1){
-             classes.push('bold');
-         }
-     }
 
+     }
+     
+     let classes = [];
+     if (this.state.persons.length <= 2){
+         classes.push("red");
+     }
+     if (this.state.persons.length <=1){
+         classes.push('bold');
+     }
 
     return (
       <div className="App">
         <h1>Hello</h1>
         <p className={classes.join(' ')}> HAHHAHA </p>
-        <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button> //Not efecient
+        <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button>
 
         {persons }
 
