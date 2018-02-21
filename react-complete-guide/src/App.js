@@ -61,7 +61,7 @@ class App extends Component {
         this.setState({showPerson:!show});
     }
 
-    render  () {
+    render ()  {
      //first class
      const style = {
          backgroundColor:"green",
