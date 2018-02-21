@@ -18,7 +18,7 @@ class App extends Component {
     }
 
     removeListener = (index) =>{
-        let newBox = [...this.state.box];
+        let newBox = [...this.state.box]; 
         newBox.splice(index,1);
         this.setState({box:newBox});
 

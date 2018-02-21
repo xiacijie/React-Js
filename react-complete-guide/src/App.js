@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Radium,{StyleRoot} from 'radium';
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -61,14 +61,19 @@ class App extends Component {
         this.setState({showPerson:!show});
     }
 
-    render = () => {
+    render  () {
      //first class
      const style = {
          backgroundColor:"green",
          color:"white",
          font:"inherit",
          border:"1x solid blue",
-         padding:"8x"
+         padding:"8x",
+         cursor:'pointer',
+         ':hover':{
+             backgroundColor:"lightgreen",
+             color:"black"
+         }
      };
 
      let persons = null;
@@ -87,11 +92,14 @@ class App extends Component {
 
          );
          style.backgroundColor = 'red';
-
+         style[':hover'] = {
+             backgroundColor:"lightgreen",
+             color:"black"
+         };
 
      }
-     
-     let classes = [];
+
+     const classes = [];
      if (this.state.persons.length <= 2){
          classes.push("red");
      }
@@ -100,15 +108,17 @@ class App extends Component {
      }
 
     return (
-      <div className="App">
-        <h1>Hello</h1>
-        <p className={classes.join(' ')}> HAHHAHA </p>
-        <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button>
+        <StyleRoot>
+          <div className="App">
+            <h1>Hello</h1>
+            <p className={classes.join(' ')}> HAHHAHA </p>
+            <button style = {style} onClick={this.togglePersonHandler}>Switch Name</button>
 
-        {persons }
+            {persons }
 
-      </div>
-      // <p> adsad</p>: Wrong, we there must be a root element
+          </div>
+        </StyleRoot>
+          // <p> adsad</p>: Wrong, we there must be a root element
     );
 
     // return React.createElement('div',{className:"App"},React.createElement("h1",null,"hello"));
@@ -117,4 +127,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Radium( App );

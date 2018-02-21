@@ -1,0 +1,65 @@
+Es6 syntax
+
+1. Arrow functions
+
+. const App = () =>{
+	return sth;
+}
+
+//using the arrow to repalce function
+
+
+//////////////////////////////////////////
+
+2. Export and import
+
+==========================================
+const person ={
+	name:"xia";
+}
+
+export default person  //default here means if we want to import anything from other files, it will always be the default one.
+
+==========================================
+import person from './person,js'
+import prs from './person.js'   // prs here is person
+
+==========================================
+export const clean = () => {}
+export const baseDate = 10;
+
+==========================================
+import {baseData} from './utility.js'
+import {clean} from './utility.js'  // must specify the exact name
+import {clean as cl} from "./" //we can change the module name
+import * as bundle from 'utility.js'  // export everything as an object 
+
+//////////////////////////////////////////////////
+
+3. Classes
+
+class Person{
+	name = "xia";
+	call = () =>{};
+
+}
+
+#inheritance of class
+
+class Person extends Master; // it inherient all members and function of Person and add new properties
+
+//class constructor
+
+class Person{
+	constructor(){
+		this.name = 'MAx';
+	}
+
+	print(){
+		console.log(this.name);
+	}
+}
+
+const person = new Person()  //new an object
+
+
